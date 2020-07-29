@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/00-Test/00-Test.iml" filepath="$PROJECT_DIR$/00-Test/00-Test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/02-动态数组/02-动态数组.iml" filepath="$PROJECT_DIR$/02-动态数组/02-动态数组.iml" />
+      <module fileurl="file://$PROJECT_DIR$/03-链表/03-链表.iml" filepath="$PROJECT_DIR$/03-链表/03-链表.iml" />
+      <module fileurl="file://$PROJECT_DIR$/04-栈/04-栈.iml" filepath="$PROJECT_DIR$/04-栈/04-栈.iml" />
+      <module fileurl="file://$PROJECT_DIR$/05-队列/05-队列.iml" filepath="$PROJECT_DIR$/05-队列/05-队列.iml" />
+      <module fileurl="file://$PROJECT_DIR$/06-二叉树/06-二叉树.iml" filepath="$PROJECT_DIR$/06-二叉树/06-二叉树.iml" />
+      <module fileurl="file://$PROJECT_DIR$/07-二叉搜索树/07-二叉搜索树.iml" filepath="$PROJECT_DIR$/07-二叉搜索树/07-二叉搜索树.iml" />
+      <module fileurl="file://$PROJECT_DIR$/07-二叉搜索树2/07-二叉搜索树2.iml" filepath="$PROJECT_DIR$/07-二叉搜索树2/07-二叉搜索树2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/08-AVL树/08-AVL树.iml" filepath="$PROJECT_DIR$/08-AVL树/08-AVL树.iml" />
+      <module fileurl="file://$PROJECT_DIR$/99-MyCode/99-MyCode.iml" filepath="$PROJECT_DIR$/99-MyCode/99-MyCode.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MyLearnMJ.iml" filepath="$PROJECT_DIR$/MyLearnMJ.iml" />
+    </modules>
+  </component>
+</project>
