@@ -1,5 +1,8 @@
 package 树;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 /**
  * 给定一个二叉树，编写一个函数来获取这个树的最大宽度。树的宽度是所有层中的最大宽度。这个二叉树与满二叉树（full binary tree）结构相同，但一些节点为空。
  *
@@ -62,10 +65,40 @@ package 树;
  */
 public class _662_二叉树最大宽度 {
     public int widthOfBinaryTree(TreeNode root) {
-        int width = 0;
         if (root == null) {
             return 0;
         }
+        int width = 0;
+        int curDepth = 0;
+        int left = 0;
+        Queue<WidthNode> queue = new LinkedList<>();
+        queue.offer(new WidthNode(root, 0, 0));
+        while (!queue.isEmpty()) {
+            WidthNode widthNode = queue.poll();
+            if (widthNode.node.left != null) {
+                queue.offer(new WidthNode(widthNode.node.left, widthNode.depth + 1, widthNode.pos * 2));
+            }
+            if (widthNode.node.right != null) {
+                queue.offer(new WidthNode(widthNode.node.right, widthNode.depth + 1, widthNode.pos * 2 + 1));
+            }
+            if (widthNode.depth != curDepth) {
+                left = widthNode.pos;
+                curDepth = widthNode.depth;
+            }
+            width = Math.max(width, widthNode.pos - left + 1);
+        }
         return width;
+    }
+
+    private static class WidthNode {
+        TreeNode node;
+        int depth;
+        int pos;
+
+        public WidthNode(TreeNode node, int depth, int pos) {
+            this.node = node;
+            this.depth = depth;
+            this.pos = pos;
+        }
     }
 }
