@@ -8,7 +8,7 @@ public class Main {
 
     static void test1() {
         Integer data[] = new Integer[]{
-                85, 19, 69, 3, 7, 99, 2, 1, 70, 44, 58, 11, 21, 14, 93, 57, 4, 56
+                85, 19, 69, 3, 7, 99, 95, 2, 1, 70, 44, 58, 11, 21, 14, 93, 57, 4, 56
         };
 
         AVLTree<Integer> avl = new AVLTree<>();

@@ -27,7 +27,7 @@ public class AVLTree<E> extends BST<E> {
     }
 
     @Override
-    protected Node<E> createNode(Object element, Node parent) {
+    protected Node<E> createNode(E element, Node<E> parent) {
         return new AVLNode<>(element, parent);
     }
 
@@ -66,26 +66,6 @@ public class AVLTree<E> extends BST<E> {
         Node<E> child = parent.left;
         grand.right = child;
         parent.left = grand;
-
-        // 更新parent成为子树根节点
-        parent.parent = grand.parent;
-        if (grand.isLeftChild()) {
-            grand.parent.left = parent;
-        } else if (grand.isRightChild()) {
-            grand.parent.right = parent;
-        } else { // grand是root节点
-            root = parent;
-        }
-        // 更新child的parent
-        if (child != null) {
-            child.parent = grand;
-        }
-        // 更新grand的parent
-        grand.parent = parent;
-
-        // 更新高度
-        updateHeight(grand);
-        updateHeight(parent);
         afterRotate(grand, parent, child);
     }
 
@@ -156,6 +136,15 @@ public class AVLTree<E> extends BST<E> {
                 return right;
             }
             return isLeftChild() ? left : right;
+        }
+
+        @Override
+        public String toString() {
+            String parentString = "null";
+            if (parent != null) {
+                parentString = parent.element.toString();
+            }
+            return element + "_p(" + parentString + ")_h("+height+")";
         }
     }
 }

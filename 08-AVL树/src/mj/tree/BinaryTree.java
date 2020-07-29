@@ -232,12 +232,7 @@ public class BinaryTree<E> implements BinaryTreeInfo {
 
     @Override
     public Object string(Object node) {
-        Node<E> myNode = (Node<E>) node;
-        String parentString = "null";
-        if (myNode.parent != null) {
-            parentString = myNode.parent.element.toString();
-        }
-        return ((Node<E>) node).element + "_p(" + parentString + ")";
+        return node;
     }
 
     protected static class Node<E> {
