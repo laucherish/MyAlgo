@@ -32,18 +32,17 @@ public class RBTree<E> extends BBST<E> {
         // 叔父节点
         Node<E> uncle = parent.sibling();
         // 祖父节点
-        Node<E> grand = parent.parent;
+        Node<E> grand = red(parent.parent);
         if (isRed(uncle)) { // 叔父节点是红色
             black(parent);
             black(uncle);
             // 祖父节点当作是新添加的节点
-            afterAdd(red(grand));
+            afterAdd(grand);
             return;
         }
 
         // 叔父节点不是红色
         if (parent.isLeftChild()) { // L
-            red(grand);
             if (node.isLeftChild()) { // LL
                 black(parent);
             } else { // LR
@@ -52,7 +51,6 @@ public class RBTree<E> extends BBST<E> {
             }
             rotateRight(grand);
         } else { // R
-            red(grand);
             if (node.isLeftChild()) { // RL
                 black(node);
                 rotateRight(parent);
@@ -61,6 +59,22 @@ public class RBTree<E> extends BBST<E> {
             }
             rotateLeft(grand);
         }
+    }
+
+    @Override
+    protected void afterRemove(Node<E> node, Node<E> replacement) {
+        // 如果删除的节点是红色
+        if (isRed(node)) {
+            return;
+        }
+
+        // 用以取代的是红色
+        if (isRed(replacement)) {
+            black(replacement);
+            return;
+        }
+
+        // 删除的是黑色叶子节点
     }
 
     private Node<E> color(Node<E> node, boolean color) {
