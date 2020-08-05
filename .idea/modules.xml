@@ -14,6 +14,7 @@
       <module fileurl="file://$PROJECT_DIR$/09-红黑树/09-红黑树.iml" filepath="$PROJECT_DIR$/09-红黑树/09-红黑树.iml" />
       <module fileurl="file://$PROJECT_DIR$/10-映射/10-映射.iml" filepath="$PROJECT_DIR$/10-映射/10-映射.iml" />
       <module fileurl="file://$PROJECT_DIR$/10-集合/10-集合.iml" filepath="$PROJECT_DIR$/10-集合/10-集合.iml" />
+      <module fileurl="file://$PROJECT_DIR$/11-哈希表/11-哈希表.iml" filepath="$PROJECT_DIR$/11-哈希表/11-哈希表.iml" />
       <module fileurl="file://$PROJECT_DIR$/99-MyCode/99-MyCode.iml" filepath="$PROJECT_DIR$/99-MyCode/99-MyCode.iml" />
       <module fileurl="file://$PROJECT_DIR$/MyLearnMJ.iml" filepath="$PROJECT_DIR$/MyLearnMJ.iml" />
     </modules>
