@@ -30,10 +30,14 @@ public class Main {
         System.out.println(e.hashCode());
     }
 
-    public static void main(String[] args) {
+    static void test3() {
         Person p1 = new Person(10, 1.67f, "jack");
         Person p2 = new Person(10, 1.67f, "jack");
         System.out.println(p1.hashCode());
         System.out.println(p2.hashCode());
+    }
+
+    public static void main(String[] args) {
+
     }
 }
