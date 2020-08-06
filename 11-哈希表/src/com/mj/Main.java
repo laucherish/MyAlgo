@@ -1,5 +1,8 @@
 package com.mj;
 
+import com.mj.map.HashMap;
+import com.mj.map.Map;
+
 @SuppressWarnings("unused")
 public class Main {
 
@@ -38,6 +41,15 @@ public class Main {
     }
 
     public static void main(String[] args) {
-
+        Person p1 = new Person(10, 1.67f, "jack");
+        Person p2 = new Person(10, 1.67f, "jack");
+        Map<Object, Integer> map = new HashMap<>();
+        map.put(p1, 1);
+        map.put(p2, 3);
+        map.put("jack", 10);
+        map.put("rose", 99);
+        map.put(null, 6);
+        System.out.println(map.get("jack"));
+        System.out.println(map.get(null));
     }
 }

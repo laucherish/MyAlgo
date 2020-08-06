@@ -83,7 +83,8 @@ public class HashMap<K, V> implements Map<K, V> {
 
     @Override
     public V get(K key) {
-        return null;
+        Node<K, V> node = node(key);
+        return node != null ? node.value : null;
     }
 
     @Override
@@ -93,7 +94,7 @@ public class HashMap<K, V> implements Map<K, V> {
 
     @Override
     public boolean containsKey(K key) {
-        return false;
+        return node(key) != null;
     }
 
     @Override
@@ -106,18 +107,37 @@ public class HashMap<K, V> implements Map<K, V> {
 
     }
 
+    private Node<K,V> node(K key) {
+        Node<K, V> node = table[index(key)];
+        int h1 = key == null ? 0 : key.hashCode();
+        while (node != null) {
+            int cmp = compare(key, node.key, h1, node.hash);
+            if (cmp > 0) {
+                node = node.right;
+            } else if (cmp < 0) {
+                node = node.left;
+            } else { // 相等
+                return node;
+            }
+        }
+        return null;
+    }
+
     /**
      * 根据key生成对应的索引（在桶数组中的位置）
-     *
-     * @param key
-     * @return
      */
     private int index(K key) {
-        if (key == null) {
-            return 0;
-        }
+        return hash(key) & (table.length - 1);
+    }
+
+    private int hash(K key) {
+        if (key == null) return 0;
         int hash = key.hashCode();
-        return hash ^ (hash >>> 16) & (table.length - 1);
+        return hash ^ (hash >>> 16);
+    }
+
+    private int index(Node<K,V> node) {
+        return node.hash ^ (node.hash >>> 16) & (table.length - 1);
     }
 
     private void afterRemove(Node<K, V> node) {
@@ -240,20 +260,6 @@ public class HashMap<K, V> implements Map<K, V> {
         return node.parent;
     }
 
-    private Node<K, V> node(K key) {
-        Node<K, V> node = root;
-        while (node != null) {
-            int cmp = compare(key, node.key);
-            if (cmp == 0) return node;
-            if (cmp > 0) {
-                node = node.right;
-            } else { // cmp < 0
-                node = node.left;
-            }
-        }
-        return null;
-    }
-
     private void afterPut(Node<K, V> node) {
         Node<K, V> parent = node.parent;
 
@@ -322,7 +328,8 @@ public class HashMap<K, V> implements Map<K, V> {
         } else if (grand.isRightChild()) {
             grand.parent.right = parent;
         } else { // grand是root节点
-            root = parent;
+            // 拿到根节点所在的桶
+            table[index(grand)] = parent;
         }
 
         // 更新child的parent
@@ -392,12 +399,10 @@ public class HashMap<K, V> implements Map<K, V> {
                 return ((Comparable) k1).compareTo(k2);
             }
         }
-        // 同一种类型，单不具备可比较性
+        // 同一种类型，哈希值相等，但不具备可比较性
         // k1不为null，k2为null
         // k2不为null，k1为null
-
-
-        return h1 - h2;
+        return System.identityHashCode(k1) - System.identityHashCode(k2);
     }
 
     private void keyNotNullCheck(K key) {
