@@ -18,6 +18,7 @@
       <module fileurl="file://$PROJECT_DIR$/12-堆/12-堆.iml" filepath="$PROJECT_DIR$/12-堆/12-堆.iml" />
       <module fileurl="file://$PROJECT_DIR$/13-优先级队列/13-优先级队列.iml" filepath="$PROJECT_DIR$/13-优先级队列/13-优先级队列.iml" />
       <module fileurl="file://$PROJECT_DIR$/14-Trie/14-Trie.iml" filepath="$PROJECT_DIR$/14-Trie/14-Trie.iml" />
+      <module fileurl="file://$PROJECT_DIR$/15-二叉树的非递归遍历/15-二叉树的非递归遍历.iml" filepath="$PROJECT_DIR$/15-二叉树的非递归遍历/15-二叉树的非递归遍历.iml" />
       <module fileurl="file://$PROJECT_DIR$/99-MyCode/99-MyCode.iml" filepath="$PROJECT_DIR$/99-MyCode/99-MyCode.iml" />
       <module fileurl="file://$PROJECT_DIR$/MyLearnMJ.iml" filepath="$PROJECT_DIR$/MyLearnMJ.iml" />
     </modules>
